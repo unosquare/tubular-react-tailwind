@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowJs": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "preserveConstEnums": true,
+        "outDir": "./dist",
+        "jsx": "react",
+        "lib": ["es5", "es6", "dom"],
+        "declaration": true,
+        "sourceMap": false,
+        "target": "es5",
+        "skipLibCheck": true,
+        "resolveJsonModule": true
+    },
+    "include": [ "./src/**/*.ts", "./src/**/*.tsx" ],
+    "exclude": [ "./test/**/*.*", "./node_modules" ]
+}
