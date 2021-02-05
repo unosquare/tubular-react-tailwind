@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Grid } from "./Grid";
-import "./styles.css";
 
 export const App: React.FunctionComponent = () => {
   return (
