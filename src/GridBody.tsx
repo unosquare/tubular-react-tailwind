@@ -14,7 +14,7 @@ export const GridBody: React.FunctionComponent<GridBodyProps> = ({
   columns,
 }: GridBodyProps) => {
   return (
-    <tbody>
+    <tbody className="bg-white divide-y divide-gray-200">
       {!isLoading &&
         data.map((row, index) => (
           <GridRowDefault row={row} columns={columns} key={index} />

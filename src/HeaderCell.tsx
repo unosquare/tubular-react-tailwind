@@ -1,24 +1,5 @@
-import { ColumnSortDirection, ColumnModel } from "tubular-common";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ColumnModel } from "tubular-common";
 import * as React from "react";
-import { createUseStyles } from "react-jss";
-
-const headerCellStyles = {
-  headerCell: {
-    userSelect: "none",
-    cursor: (props: HeaderCellProps) =>
-      props.column.sortable ? "pointer" : "auto",
-  },
-  headerContent: {
-    display: "flex",
-    "& span": {
-      marginLeft: "0.3rem",
-    },
-  },
-  text: {},
-};
-
-const useStyles = createUseStyles(headerCellStyles);
 
 interface HeaderCellProps {
   column: ColumnModel;
@@ -29,7 +10,6 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({
   column,
   sortColumn,
 }) => {
-  const classes = useStyles({ column });
   return (
     <th
       key={column.name}
@@ -38,11 +18,12 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({
           sortColumn(column.name);
         }
       }}
-      className={classes.headerCell}
+      scope="col"
+      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
     >
-      <div className={classes.headerContent}>
-        <div className={classes.text}>{column.label}</div>
-        {column.sortDirection !== ColumnSortDirection.None && (
+      <div>
+        <div>{column.label}</div>
+        {/* {column.sortDirection !== ColumnSortDirection.None && (
           <span>
             {column.sortDirection === ColumnSortDirection.Ascending ? (
               <FontAwesomeIcon icon="sort-up" />
@@ -50,7 +31,7 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({
               <FontAwesomeIcon icon="sort-down" />
             )}
           </span>
-        )}
+        )} */}
       </div>
     </th>
   );

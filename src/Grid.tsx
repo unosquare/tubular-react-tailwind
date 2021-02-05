@@ -2,89 +2,44 @@ import * as React from "react";
 import { useTubular } from "tubular-react-common";
 
 import columns from "./columns";
-import withStyles, { WithStylesProps } from "react-jss";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faChevronRight,
-  faChevronLeft,
-  faAngleDoubleLeft,
-  faAngleDoubleRight,
-  faSortUp,
-  faSortDown,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
-import { buttonStyle } from "./styles/common";
-import { Pagination } from "./Pagination";
+// import { Pagination } from "./Pagination";
 import { GridHeader } from "./GridHeader";
 import { GridBody } from "./GridBody";
-import { GridToolbar } from "./GridToolbar";
+import { Pagination } from "./Pagination";
+// import { GridToolbar } from "./GridToolbar";
 
-library.add(
-  faChevronRight,
-  faChevronLeft,
-  faAngleDoubleLeft,
-  faAngleDoubleRight,
-  faSortUp,
-  faSortDown,
-  faSearch
-);
-
-const styles = {
-  gridContainer: {
-    display: "flex",
-    flexDirection: "column",
-    "& button": {
-      extend: buttonStyle,
-    },
-  },
-  grid: {},
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-    "& th, td": {
-      padding: "8px",
-    },
-    "& tr:hover": {
-      backgroundColor: "#ddd",
-    },
-    "& tr:nth-child(even)": {
-      backgroundColor: "#f2f2f2",
-    },
-  },
-};
-
-export const GridComponent: React.FunctionComponent<
-  WithStylesProps<typeof styles>
-> = ({ classes }: WithStylesProps<typeof styles>) => {
+export const Grid: React.FunctionComponent<any> = () => {
   const { state, api } = useTubular(
     columns,
     "https://tubular.azurewebsites.net/api/orders/paged"
   );
   return (
-    <div className={classes.gridContainer}>
-      <GridToolbar
-        search={api.updateSearchText}
-        searchText={state.searchText}
-      />
-      <div className={classes.grid}>
-        <table className={classes.table}>
-          <GridHeader columns={state.columns} sortColumn={api.sortColumn} />
-          <GridBody
-            columns={state.columns}
-            data={state.data}
-            isLoading={state.isLoading}
-          />
-        </table>
+    <div className="flex flex-col">
+      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            {/* <GridToolbar
+              search={api.updateSearchText}
+              searchText={state.searchText}
+            /> */}
+            <table className="min-w-full divide-y divide-gray-200">
+              <GridHeader columns={state.columns} sortColumn={api.sortColumn} />
+              <GridBody
+                columns={state.columns}
+                data={state.data}
+                isLoading={state.isLoading}
+              />
+            </table>
+            <Pagination
+              isLoading={state.isLoading}
+              filteredRecordCount={state.filteredRecordCount}
+              itemsPerPage={state.itemsPerPage}
+              page={state.page}
+              goToPage={api.goToPage}
+            />
+          </div>
+        </div>
       </div>
-      <Pagination
-        isLoading={state.isLoading}
-        filteredRecordCount={state.filteredRecordCount}
-        itemsPerPage={state.itemsPerPage}
-        page={state.page}
-        goToPage={api.goToPage}
-      />
     </div>
   );
 };
-
-export const Grid = withStyles(styles)(GridComponent);

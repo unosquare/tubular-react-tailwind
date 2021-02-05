@@ -15,7 +15,7 @@ export const GridRowDefault: React.FunctionComponent<GridRowDefaultProps> = ({
       {columns
         .filter((col) => col.visible)
         .map((col) => (
-          <td role="cell" key={col.name}>
+          <td role="cell" key={col.name} className="px-6 py-4 whitespace-nowrap">
             {row[col.name]}
           </td>
         ))}

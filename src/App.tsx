@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Grid } from "./Grid";
+import "./styles.css";
 
 export const App: React.FunctionComponent = () => {
   return (
-    <div className="ah">
+    <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <Grid />
     </div>
   );
