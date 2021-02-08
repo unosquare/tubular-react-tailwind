@@ -25,10 +25,27 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({ column, s
                 }
             }}
             scope="col"
-            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            className="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
         >
             <div className={`relative inline-flex ${cursorClass}`}>
                 <div>{column.label}</div>
+                {column.sortable && column.sortDirection === ColumnSortDirection.None && (
+                    <span>
+                        <svg
+                            className={`h-4 w-4 ml-1 opacity-30 transform rotate-180 group-hover:opacity-100`}
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                className="origin-center"
+                                fillRule="evenodd"
+                                d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                    </span>
+                )}
                 {column.sortDirection !== ColumnSortDirection.None && (
                     <span>
                         <svg
@@ -39,8 +56,10 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({ column, s
                         >
                             <path
                                 className="origin-center"
-                                d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
-                            ></path>
+                                fillRule="evenodd"
+                                d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                            />
                         </svg>
                     </span>
                 )}
