@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useTubular } from 'tubular-react-common';
 
 import columns from './columns';
-// import { Pagination } from "./Pagination";
 import { GridHeader } from './GridHeader';
 import { GridBody } from './GridBody';
 import { Pagination } from './Pagination';

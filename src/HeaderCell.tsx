@@ -1,5 +1,6 @@
-import { ColumnModel } from 'tubular-common';
+import { ColumnModel, ColumnSortDirection } from 'tubular-common';
 import * as React from 'react';
+import classNames = require('classnames');
 
 interface HeaderCellProps {
     column: ColumnModel;
@@ -7,6 +8,14 @@ interface HeaderCellProps {
 }
 
 export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({ column, sortColumn }) => {
+    const cursorClass = classNames({
+        'cursor-pointer': column.sortable,
+    });
+
+    const sortIconClassNames = classNames({
+        'rotate-180': column.sortDirection === ColumnSortDirection.Ascending,
+    });
+
     return (
         <th
             key={column.name}
@@ -18,17 +27,23 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({ column, s
             scope="col"
             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
         >
-            <div>
+            <div className={`relative inline-flex ${cursorClass}`}>
                 <div>{column.label}</div>
-                {/* {column.sortDirection !== ColumnSortDirection.None && (
-          <span>
-            {column.sortDirection === ColumnSortDirection.Ascending ? (
-              <FontAwesomeIcon icon="sort-up" />
-            ) : (
-              <FontAwesomeIcon icon="sort-down" />
-            )}
-          </span>
-        )} */}
+                {column.sortDirection !== ColumnSortDirection.None && (
+                    <span>
+                        <svg
+                            className={`h-4 w-4 ml-1 transform duration-300 transition-transform ${sortIconClassNames}`}
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                className="origin-center"
+                                d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                            ></path>
+                        </svg>
+                    </span>
+                )}
             </div>
         </th>
     );
