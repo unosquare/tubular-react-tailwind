@@ -1,7 +1,7 @@
-import classNames = require("classnames");
-import * as React from "react";
-import { Link } from "./components/Link";
-import { getPages } from "tubular-common";
+import classNames = require('classnames');
+import * as React from 'react';
+import { Link } from './components/Link';
+import { getPages } from 'tubular-common';
 
 interface PaginationProps {
     isLoading: boolean;

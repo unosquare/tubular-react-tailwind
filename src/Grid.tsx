@@ -20,7 +20,12 @@ export const Grid: React.FunctionComponent<any> = () => {
             /> */}
                         <table className="min-w-full divide-y divide-gray-200">
                             <GridHeader columns={state.columns} sortColumn={api.sortColumn} />
-                            <GridBody columns={state.columns} data={state.data} isLoading={state.isLoading} />
+                            <GridBody
+                                itemsPerPage={state.itemsPerPage}
+                                columns={state.columns}
+                                data={state.data}
+                                isLoading={state.isLoading}
+                            />
                         </table>
                         <Pagination
                             isLoading={state.isLoading}
