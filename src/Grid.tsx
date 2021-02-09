@@ -11,9 +11,9 @@ export const Grid: React.FunctionComponent<any> = () => {
     const { state, api } = useTubular(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
     return (
         <div className="flex flex-col">
-            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="-my-2 sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <div className="shadow border-b border-gray-200 sm:rounded-lg">
                         {/* <GridToolbar
               search={api.updateSearchText}
               searchText={state.searchText}
@@ -33,6 +33,7 @@ export const Grid: React.FunctionComponent<any> = () => {
                             itemsPerPage={state.itemsPerPage}
                             page={state.page}
                             goToPage={api.goToPage}
+                            updateItemsPerPage={api.updateItemsPerPage}
                         />
                     </div>
                 </div>

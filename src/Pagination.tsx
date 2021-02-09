@@ -2,6 +2,7 @@ import classNames = require('classnames');
 import * as React from 'react';
 import { Link } from './components/Link';
 import { getPages } from 'tubular-common';
+import { PaginationRowsPerPageDropDown } from './PaginationRowsPerPageDropDown';
 
 interface PaginationProps {
     isLoading: boolean;
@@ -9,6 +10,7 @@ interface PaginationProps {
     filteredRecordCount: number;
     itemsPerPage: number;
     goToPage: (page: number) => void;
+    updateItemsPerPage: (newValue: number) => void;
 }
 
 export const Pagination: React.FunctionComponent<PaginationProps> = ({
@@ -17,6 +19,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
     filteredRecordCount,
     itemsPerPage,
     goToPage,
+    updateItemsPerPage,
 }: PaginationProps) => {
     const pages = getPages(page, filteredRecordCount, itemsPerPage);
     const lastPage = Math.ceil(filteredRecordCount / itemsPerPage) - 1;
@@ -30,7 +33,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
     const canNotFwd = page >= lastPage || isLoading;
 
     return (
-        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+        <div className="relative bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
             <div className="flex-1 flex justify-between sm:hidden">
                 <a
                     href="#"
@@ -45,17 +48,13 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
                     Next
                 </a>
             </div>
-            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
-                    <p className="text-sm text-gray-700">
-                        Showing
-                        <span className="font-medium"> 1 </span>
-                        to
-                        <span className="font-medium"> 10 </span>
-                        of
-                        <span className="font-medium"> 97 </span>
-                        results
-                    </p>
+            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-end">
+                <div className="sm:flex sm:items-center sm:justify-end mr-4">
+                    <p className="text-sm text-gray-700 mr-1">Rows per page:</p>{' '}
+                    <PaginationRowsPerPageDropDown
+                        updateItemsPerPage={updateItemsPerPage}
+                        itemsPerPage={itemsPerPage}
+                    />
                 </div>
                 <div>
                     <nav className="relative z-0 inline-flex shadow-sm -space-x-px" aria-label="Pagination">
