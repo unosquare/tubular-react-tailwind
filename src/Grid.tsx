@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useTubular } from 'tubular-react-common';
+import { useTbSelection, useTbTable, useTubular } from 'tubular-react-common';
 
 import columns from './columns';
 import { GridHeader } from './GridHeader';
@@ -8,7 +8,8 @@ import { Pagination } from './Pagination';
 // import { GridToolbar } from "./GridToolbar";
 
 export const Grid: React.FunctionComponent<any> = () => {
-    const { state, api } = useTubular(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
+    const { state, api } = useTbTable(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
+    const selection = useTbSelection({ state, api }, true);
     return (
         <div className="flex flex-col">
             <div className="-my-2 sm:-mx-6 lg:-mx-8">
@@ -19,12 +20,21 @@ export const Grid: React.FunctionComponent<any> = () => {
               searchText={state.searchText}
             /> */}
                         <table className="min-w-full divide-y divide-gray-200">
-                            <GridHeader columns={state.columns} sortColumn={api.sortColumn} />
+                            <GridHeader
+                                rowSelectionEnabled={true}
+                                selection={selection}
+                                columns={state.columns}
+                                sortColumn={api.sortColumn}
+                                rows={state.data}
+                                isLoading={state.isLoading}
+                            />
                             <GridBody
                                 itemsPerPage={state.itemsPerPage}
                                 columns={state.columns}
                                 data={state.data}
                                 isLoading={state.isLoading}
+                                rowSelectionEnabled={true}
+                                selection={selection}
                             />
                         </table>
                         <Pagination

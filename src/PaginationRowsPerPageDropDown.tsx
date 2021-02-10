@@ -15,7 +15,7 @@ export const PaginationRowsPerPageDropDown: React.FunctionComponent<any> = ({ it
             value={itemsPerPage}
         >
             {options.map((option) => (
-                <option>{option.text}</option>
+                <option key={option.value}>{option.text}</option>
             ))}
         </select>
     );
