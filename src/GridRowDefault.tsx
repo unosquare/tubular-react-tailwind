@@ -2,6 +2,7 @@ import { ColumnModel } from 'tubular-common';
 import * as React from 'react';
 import { ITbSelection } from 'tubular-react-common';
 import { SelectionCell } from './SelectionCell';
+import { renderCell } from './utils';
 
 interface GridRowDefaultProps {
     row: any;
@@ -23,13 +24,7 @@ export const GridRowDefault: React.FunctionComponent<GridRowDefaultProps> = ({
             {rowSelectionEnabled && (
                 <SelectionCell isLoading={isLoading} selection={selection} row={row} columns={columns} />
             )}
-            {columns
-                .filter((col) => col.visible)
-                .map((col) => (
-                    <td role="cell" key={col.name} className="px-6 py-4 whitespace-nowrap">
-                        {row[col.name]}
-                    </td>
-                ))}
+            {columns.filter((col) => col.visible).map((col) => renderCell(col, row[col.name]))}
         </tr>
     );
 };
