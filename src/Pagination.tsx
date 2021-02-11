@@ -56,6 +56,11 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
                         itemsPerPage={itemsPerPage}
                     />
                 </div>
+                <div className="sm:flex sm:items-center sm:justify-end mr-4">
+                    <p className="text-sm text-gray-700 mr-1">
+                        {page + 1}-{page + itemsPerPage} of {filteredRecordCount}
+                    </p>
+                </div>
                 <div>
                     <nav className="relative z-0 inline-flex shadow-sm -space-x-px" aria-label="Pagination">
                         <Link
