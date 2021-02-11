@@ -10,7 +10,7 @@ const options = [
 export const PaginationRowsPerPageDropDown: React.FunctionComponent<any> = ({ itemsPerPage, updateItemsPerPage }) => {
     return (
         <select
-            className="block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="block py-2 pr-8 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             onChange={(event) => updateItemsPerPage(options[event.currentTarget.selectedIndex].value)}
             value={itemsPerPage}
         >

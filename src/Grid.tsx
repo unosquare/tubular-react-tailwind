@@ -5,7 +5,7 @@ import columns from './columns';
 import { GridHeader } from './GridHeader';
 import { GridBody } from './GridBody';
 import { Pagination } from './Pagination';
-// import { GridToolbar } from "./GridToolbar";
+import { GridToolbar } from './GridToolbar';
 
 export const Grid: React.FunctionComponent<any> = () => {
     const { state, api } = useTbTable(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
@@ -14,11 +14,8 @@ export const Grid: React.FunctionComponent<any> = () => {
         <div className="flex flex-col">
             <div className="-my-2 sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <GridToolbar search={api.updateSearchText} searchText={state.searchText} />
                     <div className="shadow border-b border-gray-200 sm:rounded-lg">
-                        {/* <GridToolbar
-              search={api.updateSearchText}
-              searchText={state.searchText}
-            /> */}
                         <table className="min-w-full divide-y divide-gray-200">
                             <GridHeader
                                 rowSelectionEnabled={true}
