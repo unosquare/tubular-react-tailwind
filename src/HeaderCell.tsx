@@ -27,7 +27,7 @@ export const HeaderCell: React.FunctionComponent<HeaderCellProps> = ({ column, s
             scope="col"
             className="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
         >
-            <div className={`relative inline-flex ${cursorClass}`}>
+            <div className={`inline-flex ${cursorClass}`}>
                 <div>{column.label}</div>
                 {column.sortable && column.sortDirection === ColumnSortDirection.None && (
                     <span>

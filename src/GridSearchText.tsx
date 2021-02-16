@@ -19,7 +19,7 @@ export const GridSearchText: React.FunctionComponent<GridSearchTextProps> = ({
     };
 
     return (
-        <div className="mt-1 relative rounded-md shadow-sm">
+        <div className="relative rounded-md shadow-sm">
             <div className="absolute inset-y-0 left-2 flex items-center">
                 <span>
                     <svg

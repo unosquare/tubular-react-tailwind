@@ -10,11 +10,20 @@ import { GridToolbar } from './GridToolbar';
 export const Grid: React.FunctionComponent<any> = () => {
     const { state, api } = useTbTable(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
     const selection = useTbSelection({ state, api }, true);
+    const gridName = 'sample_grid';
     return (
         <div className="flex flex-col">
+            <GridToolbar
+                gridName={gridName}
+                quickFilters={['CustomerName', 'ShippedDate']}
+                columns={state.columns}
+                exportTo={api.exportTo}
+                setColumns={api.setColumns}
+                search={api.updateSearchText}
+                searchText={state.searchText}
+            />
             <div className="-my-2 sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <GridToolbar search={api.updateSearchText} searchText={state.searchText} />
                     <div className="shadow border-b border-gray-200 sm:rounded-lg">
                         <table className="min-w-full divide-y divide-gray-200">
                             <GridHeader

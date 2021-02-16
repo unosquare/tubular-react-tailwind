@@ -33,7 +33,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
     const canNotFwd = page >= lastPage || isLoading;
 
     return (
-        <div className="relative bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
             <div className="flex-1 flex justify-between sm:hidden">
                 <a
                     href="#"
