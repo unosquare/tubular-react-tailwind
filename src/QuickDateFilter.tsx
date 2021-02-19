@@ -142,7 +142,7 @@ export const QuickDateFilter: React.FunctionComponent<QuickDateFilterProps> = ({
         }
     };
     return (
-        <Listbox as="div" className="space-y-1 w-40 ml-1" value={selectedItem} onChange={onChange}>
+        <Listbox as="div" className="space-y-1 w-40 ml-4" value={selectedItem} onChange={onChange}>
             {({ open }) => (
                 <>
                     <div className="relative">

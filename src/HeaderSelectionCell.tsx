@@ -23,10 +23,10 @@ export const HeaderSelectionCell: React.FunctionComponent<HeaderSelectionCellPro
         >
             <div className={`relative inline-flex cursor-pointer`}>
                 <TinyCheckbox
-                    checked={checked}
+                    checked={checked || null}
                     isIndeterminate={isIndeterminate}
                     disabled={isLoading}
-                    onClick={toggleRowsSelection}
+                    onChange={toggleRowsSelection}
                 />
             </div>
         </th>

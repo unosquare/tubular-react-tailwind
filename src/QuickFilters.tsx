@@ -13,9 +13,9 @@ export const QuickFilters: React.FunctionComponent<QuickFiltersProps> = ({ colum
             {columns.map((col) => {
                 switch (col.dataType) {
                     case ColumnDataType.DateTime:
-                        return <QuickDateFilter column={col} filter={filter} />;
+                        return <QuickDateFilter key={col.name} column={col} filter={filter} />;
                     default:
-                        return <div></div>;
+                        return <div key={col.name}></div>;
                 }
             })}
         </>

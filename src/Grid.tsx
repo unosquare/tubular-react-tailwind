@@ -6,11 +6,35 @@ import { GridHeader } from './GridHeader';
 import { GridBody } from './GridBody';
 import { Pagination } from './Pagination';
 import { GridToolbar } from './GridToolbar';
+import { CompareOperators } from 'tubular-common';
+import { ChipFilterBar } from './ChipFilterBar';
+
+columns.forEach((col) => {
+    col.filterOperator = col.filterOperator || CompareOperators.None;
+});
 
 export const Grid: React.FunctionComponent<any> = () => {
     const { state, api } = useTbTable(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
     const selection = useTbSelection({ state, api }, true);
     const gridName = 'sample_grid';
+
+    const applyOrResetFilter = (columnName: string, value?: string) => {
+        const newColumns = state.columns.map((column) => {
+            if (column.name === columnName) {
+                return {
+                    ...column,
+                    filterText: value,
+                    filterOperator: !!value ? CompareOperators.Equals : CompareOperators.None,
+                    filterArgument: !!value ? [] : null,
+                };
+            }
+
+            return column;
+        });
+
+        api.setColumns(newColumns);
+    };
+
     return (
         <div className="flex flex-col">
             <GridToolbar
@@ -22,6 +46,7 @@ export const Grid: React.FunctionComponent<any> = () => {
                 search={api.updateSearchText}
                 searchText={state.searchText}
             />
+            <ChipFilterBar columns={state.columns} onClearFilter={applyOrResetFilter} />
             <div className="-my-2 sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div className="shadow border-b border-gray-200 sm:rounded-lg">
