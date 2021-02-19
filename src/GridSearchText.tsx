@@ -1,6 +1,4 @@
 import * as React from 'react';
-export interface GridSearchTextProps {}
-
 export interface GridSearchTextProps {
     searchText: string;
     search: (value: string) => void;
