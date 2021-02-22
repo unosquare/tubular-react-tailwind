@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ITbSelection } from 'tubular-react-common';
-import { TinyCheckbox } from './components/TinyCheckbox';
+import { TinyCheckbox } from '../components/TinyCheckbox';
 
 export interface HeaderSelectionCellProps {
     selection?: ITbSelection;

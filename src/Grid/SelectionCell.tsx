@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { ColumnModel } from 'tubular-common';
 import { ITbSelection } from 'tubular-react-common';
-import { TinyCheckbox } from './components/TinyCheckbox';
-import { HeaderSelectionCellProps } from './HeaderSelectionCell';
+import { TinyCheckbox } from '../components/TinyCheckbox';
 
 export interface SelectionCellProps {
     selection?: ITbSelection;

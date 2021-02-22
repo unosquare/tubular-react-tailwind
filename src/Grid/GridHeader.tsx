@@ -3,6 +3,7 @@ import { ITbSelection } from 'tubular-react-common';
 import * as React from 'react';
 import { HeaderCell } from './HeaderCell';
 import { HeaderSelectionCell } from './HeaderSelectionCell';
+
 interface GridHeaderProps {
     columns: ColumnModel[];
     sortColumn: (colName: string) => void;

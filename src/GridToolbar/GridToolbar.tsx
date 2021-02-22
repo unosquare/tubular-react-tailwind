@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { columnHasFilter, ColumnModel, CompareOperator, CompareOperators } from 'tubular-common';
-import { FiltersDrawer } from './Filters/FiltersDrawer';
+import { FiltersDrawer } from '../Filters/FiltersDrawer';
+import { overlayService } from '../Overlay/OverlayService';
 import { GridActionsButton } from './GridActionsButton';
 import { GridSearchText } from './GridSearchText';
-import { overlayService } from './OverlayService';
+
 interface GridToolbarProps {
     search: (term: string) => void;
     gridName: string;

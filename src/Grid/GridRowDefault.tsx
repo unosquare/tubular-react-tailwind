@@ -1,14 +1,9 @@
-import { ColumnModel } from 'tubular-common';
 import * as React from 'react';
-import { ITbSelection } from 'tubular-react-common';
+import { ITbRowProps } from 'tubular-react-common';
 import { SelectionCell } from './SelectionCell';
 import { renderCell } from './utils';
 
-interface GridRowDefaultProps {
-    row: any;
-    columns: ColumnModel[];
-    rowSelectionEnabled?: boolean;
-    selection?: ITbSelection;
+interface GridRowDefaultProps extends ITbRowProps {
     isLoading: boolean;
 }
 

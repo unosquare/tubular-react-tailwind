@@ -1,7 +1,7 @@
 import { Transition } from '@headlessui/react';
 import * as React from 'react';
 import { ColumnDataType, ColumnModel, CompareOperators } from 'tubular-common';
-import { OverlayItemProps } from '../OverlayItemProps';
+import { OverlayItemProps } from '../Overlay/OverlayItemProps';
 import { FiltersContainer } from './FiltersContainer';
 
 export interface FiltersDrawerProps extends OverlayItemProps {

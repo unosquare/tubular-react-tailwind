@@ -1,7 +1,7 @@
 import * as React from 'react';
 import columns from './columns';
-import { Grid } from '../src/Grid';
-import { OverlayContainer } from '../src/OverlayContainer';
+import { Grid } from '../src/Grid/Grid';
+import { OverlayContainer } from '../src/Overlay/OverlayContainer';
 import { CompareOperators } from 'tubular-common';
 columns.forEach((col) => {
     col.filterOperator = col.filterOperator || CompareOperators.None;

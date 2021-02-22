@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ColumnModel, columnHasFilter } from 'tubular-common';
-import { ChipFilter } from './components/ChipFilter';
+import { ChipFilter } from './ChipFilter';
 
 export interface ChipFilterBarProps {
     columns: ColumnModel[];

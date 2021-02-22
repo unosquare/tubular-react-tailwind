@@ -3,11 +3,11 @@ import { useTbSelection, useTbTable, ITbGridProps } from 'tubular-react-common';
 
 import { GridHeader } from './GridHeader';
 import { GridBody } from './GridBody';
-import { Pagination } from './Pagination';
-import { GridToolbar } from './GridToolbar';
 import { CompareOperators } from 'tubular-common';
-import { ChipFilterBar } from './ChipFilterBar';
-import './styles.css';
+import '../styles.css';
+import { GridToolbar } from '../GridToolbar/GridToolbar';
+import { ChipFilterBar } from '../Filters/ChipFilterBar';
+import { Pagination } from '../Pagination/Pagination';
 
 export const Grid: React.FunctionComponent<ITbGridProps> = ({
     columns,

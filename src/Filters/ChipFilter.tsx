@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ColumnDataType, ColumnModel, CompareOperators } from 'tubular-common';
-import { CloseIcon } from '../Filters/SvgIcons/HeroIcons';
-import { getOperatorIcon } from '../Filters/utils';
+import { CloseIcon } from './SvgIcons/HeroIcons';
+import { getOperatorIcon } from './utils';
 
 const convertToFriendlyDateString = (date: string | number) => new Date(date).toDateString();
 

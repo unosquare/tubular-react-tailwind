@@ -34,6 +34,7 @@ export const GridBody: React.FunctionComponent<GridBodyProps> = ({
                         selection={selection}
                         isLoading={isLoading}
                         row={row}
+                        rowIndex={index}
                         columns={columns}
                         key={index}
                     />
