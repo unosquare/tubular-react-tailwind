@@ -3,6 +3,8 @@ import columns from './columns';
 import { Grid } from '../src/Grid/Grid';
 import { OverlayContainer } from '../src/Overlay/OverlayContainer';
 import { CompareOperators } from 'tubular-common';
+import '../dist/styles.css';
+
 columns.forEach((col) => {
     col.filterOperator = col.filterOperator || CompareOperators.None;
 });

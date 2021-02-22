@@ -3,7 +3,7 @@ import { ITbRowProps } from 'tubular-react-common';
 import { SelectionCell } from './SelectionCell';
 import { renderCell } from './utils';
 
-interface GridRowDefaultProps extends ITbRowProps {
+export interface GridRowDefaultProps extends ITbRowProps {
     isLoading: boolean;
 }
 

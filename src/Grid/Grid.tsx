@@ -1,10 +1,9 @@
+
 import * as React from 'react';
 import { useTbSelection, useTbTable, ITbGridProps } from 'tubular-react-common';
-
 import { GridHeader } from './GridHeader';
 import { GridBody } from './GridBody';
 import { CompareOperators } from 'tubular-common';
-import '../styles.css';
 import { GridToolbar } from '../GridToolbar/GridToolbar';
 import { ChipFilterBar } from '../Filters/ChipFilterBar';
 import { Pagination } from '../Pagination/Pagination';
