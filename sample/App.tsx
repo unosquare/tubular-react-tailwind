@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Grid } from './Grid';
-import { OverlayContainer } from './OverlayContainer';
+import { Grid } from '../src/Grid';
+import { OverlayContainer } from '../src/OverlayContainer';
 
 export const App: React.FunctionComponent = () => {
     return (

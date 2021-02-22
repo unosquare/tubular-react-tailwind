@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export const SvgFilterWrapper: React.FunctionComponent<any> = ({ children }) => {
+export const SvgFilterWrapper: React.FunctionComponent<any> = ({ children, className="h-5 w-5 inline-block", viewBox = "0 0 16 16" }) => {
     return (
         <svg
-            className="h-5 w-5 inline-block"
+            className={className}
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
+            viewBox={viewBox}
             fill="currentColor"
         >
             {children}

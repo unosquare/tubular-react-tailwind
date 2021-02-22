@@ -8,6 +8,7 @@ import { Pagination } from './Pagination';
 import { GridToolbar } from './GridToolbar';
 import { CompareOperators } from 'tubular-common';
 import { ChipFilterBar } from './ChipFilterBar';
+import './styles.css';
 
 columns.forEach((col) => {
     col.filterOperator = col.filterOperator || CompareOperators.None;

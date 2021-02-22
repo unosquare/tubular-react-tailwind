@@ -38,7 +38,7 @@ export const ChipFilter: React.FunctionComponent<ChipFilterProps> = ({ column, o
     return (
         <div className="flex justify-center items-center m-1 font-medium py-1 px-2 rounded-full text-gray-700 bg-gray-100 border border-gray-300 ">
             <div className="text-xs font-normal leading-none max-w-full flex-initial">{column.label}</div>
-            <div className="flex flex-auto flex-row-reverse -mt-1 mr-1">
+            <div className="flex flex-auto flex-row-reverse mx-1">
                 <div>{getOperatorIcon(column.filterOperator)}</div>
             </div>
             <div className="text-xs font-normal leading-none max-w-full flex-initial">{filterValue}</div>
