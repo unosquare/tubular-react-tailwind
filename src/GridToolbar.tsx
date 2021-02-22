@@ -4,14 +4,12 @@ import { FiltersDrawer } from './Filters/FiltersDrawer';
 import { GridActionsButton } from './GridActionsButton';
 import { GridSearchText } from './GridSearchText';
 import { overlayService } from './OverlayService';
-import { QuickFilters } from './QuickFilters';
 interface GridToolbarProps {
     search: (term: string) => void;
     gridName: string;
     searchText: string;
     columns: ColumnModel[];
     setColumns: (columns: ColumnModel[]) => void;
-    quickFilters: string[];
     exportTo: (allRows: boolean, exportFunc: (payload: any[], columns: ColumnModel[]) => void) => void;
 }
 
@@ -20,7 +18,6 @@ export const GridToolbar: React.FunctionComponent<GridToolbarProps> = ({
     setColumns,
     search,
     searchText,
-    quickFilters,
     exportTo,
     gridName,
 }: GridToolbarProps) => {
@@ -40,7 +37,6 @@ export const GridToolbar: React.FunctionComponent<GridToolbarProps> = ({
 
         setColumns(newColumns);
     };
-    const quickFiltersColumns = quickFilters.map((col) => columns.find((c) => c.name === col));
 
     const onShowFiltersDrawer = () => {
         overlayService.addItem(FiltersDrawer, { columns, onApplyFeatures });

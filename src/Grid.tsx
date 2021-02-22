@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { useTbSelection, useTbTable, useTubular } from 'tubular-react-common';
+import { useTbSelection, useTbTable, ITbGridProps } from 'tubular-react-common';
 
-import columns from './columns';
 import { GridHeader } from './GridHeader';
 import { GridBody } from './GridBody';
 import { Pagination } from './Pagination';
@@ -10,14 +9,14 @@ import { CompareOperators } from 'tubular-common';
 import { ChipFilterBar } from './ChipFilterBar';
 import './styles.css';
 
-columns.forEach((col) => {
-    col.filterOperator = col.filterOperator || CompareOperators.None;
-});
-
-export const Grid: React.FunctionComponent<any> = () => {
-    const { state, api } = useTbTable(columns, 'https://tubular.azurewebsites.net/api/orders/paged');
+export const Grid: React.FunctionComponent<ITbGridProps> = ({
+    columns,
+    dataSource,
+    gridName,
+    rowSelectionEnabled = false,
+}) => {
+    const { state, api } = useTbTable(columns, dataSource);
     const selection = useTbSelection({ state, api }, true);
-    const gridName = 'sample_grid';
 
     const applyOrResetFilter = (columnName: string, value?: string) => {
         const newColumns = state.columns.map((column) => {
@@ -40,7 +39,6 @@ export const Grid: React.FunctionComponent<any> = () => {
         <div className="flex flex-col">
             <GridToolbar
                 gridName={gridName}
-                quickFilters={['CustomerName', 'ShippedDate']}
                 columns={state.columns}
                 exportTo={api.exportTo}
                 setColumns={api.setColumns}
@@ -53,7 +51,7 @@ export const Grid: React.FunctionComponent<any> = () => {
                     <div className="shadow border-b border-gray-200 sm:rounded-lg">
                         <table className="min-w-full divide-y divide-gray-200">
                             <GridHeader
-                                rowSelectionEnabled={true}
+                                rowSelectionEnabled={rowSelectionEnabled}
                                 selection={selection}
                                 columns={state.columns}
                                 sortColumn={api.sortColumn}
@@ -65,7 +63,7 @@ export const Grid: React.FunctionComponent<any> = () => {
                                 columns={state.columns}
                                 data={state.data}
                                 isLoading={state.isLoading}
-                                rowSelectionEnabled={true}
+                                rowSelectionEnabled={rowSelectionEnabled}
                                 selection={selection}
                             />
                         </table>
