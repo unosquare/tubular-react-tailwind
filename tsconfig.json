@@ -7,11 +7,11 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "preserveConstEnums": true,
-        "outDir": "./dist",
+        "outDir": "./lib",
         "jsx": "react",
         "lib": ["es5", "es6", "dom"],
         "declaration": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "target": "es5",
         "skipLibCheck": true,
         "resolveJsonModule": true

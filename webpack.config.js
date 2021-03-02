@@ -25,8 +25,13 @@ module.exports = (env, options) => {
             extensions: ['.tsx', '.ts', '.js'],
         },
         output: {
-            filename: 'bundle.js',
-            path: path.resolve(__dirname, 'dist'),
+            filename: 'pocTubular.js',
+            path: path.resolve(__dirname, 'lib'),
+            library: 'pocTubular',
+            libraryTarget: 'umd',
+        },
+        externals: {
+            react: 'react',
         },
         plugins: [
             new MiniCssExtractPlugin({
@@ -40,7 +45,7 @@ module.exports = (env, options) => {
     };
 
     if (isDevBuild) {
-        config.entry.push('./sample/index.tsx');
+        config.entry.push('./index.tsx');
         config.devtool = 'inline-source-map';
         config.plugins.push(
             new HtmlWebpackPlugin({
