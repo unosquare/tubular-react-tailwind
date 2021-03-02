@@ -1,5 +1,5 @@
 {
-  "name": "poc-tubular",
+  "name": "tubular-react-tailwind",
   "version": "1.0.0",
   "description": "POC Tubular",
   "main": "lib/pocTubular.js",
