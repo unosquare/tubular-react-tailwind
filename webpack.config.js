@@ -25,9 +25,8 @@ module.exports = (env, options) => {
             extensions: ['.tsx', '.ts', '.js'],
         },
         output: {
-            filename: 'pocTubular.js',
+            filename: 'index.js',
             path: path.resolve(__dirname, 'lib'),
-            library: 'pocTubular',
             libraryTarget: 'umd',
         },
         externals: {
